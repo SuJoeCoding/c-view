@@ -1,0 +1,28 @@
+@componentPre: ~'@{prefixClass}-col';
+
+.colStack(@num) when (@num <= 25) {
+  @precentage: 4*@num;
+  @className: ~'@{componentPre}-@{num}';
+
+  .@{className} {
+    width: ~'@{precentage}%';
+  }
+
+  .colStack(@num+1)
+}
+
+.colOffsetStack(@num) when (@num <= 25) {
+  @precentage: 4*@num;
+  @classOffsetName: ~'@{componentPre}-offset-@{num}';
+
+  .@{classOffsetName} {
+    margin-left: ~'@{precentage}%';
+  }
+
+  .colOffsetStack(@num+1)
+}
+
+.colStack(1);
+.colOffsetStack(1);
+
+
